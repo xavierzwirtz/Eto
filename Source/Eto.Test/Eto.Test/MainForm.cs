@@ -159,9 +159,8 @@ namespace Eto.Test
 			var quit = new Actions.Quit();
 
 #if DESKTOP
-			var menu = new MenuBar();
 			// create standard system menu (e.g. for OS X)
-			Application.Instance.CreateStandardMenu(menu.Items);
+			var menu = MenuBar.CreateStandardMenu();
 
 			// add our own items to the menu
 
@@ -183,10 +182,7 @@ namespace Eto.Test
 				file.Items.Add(quit);
 				help.Items.Add(about);
 			}
-
-			// optional, removes empty submenus and duplicate separators
-			menu.Items.Trim();
-
+			
 			Menu = menu;
 #endif
 

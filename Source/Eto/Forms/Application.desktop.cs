@@ -1,5 +1,6 @@
 #if DESKTOP
 using System.Collections.Generic;
+using System;
 
 namespace Eto.Forms
 {
@@ -24,6 +25,12 @@ namespace Eto.Forms
 			Handler.Restart();
 		}
 
+		internal void InternalCreateStandardMenu(MenuItemCollection menuItems, IEnumerable<Command> commands = null)
+		{
+			Handler.CreateStandardMenu(menuItems, commands ?? GetSystemCommands());
+		}
+
+		[Obsolete("Use MenuBar.CreateStandardMenu() instead")]
 		public void CreateStandardMenu(MenuItemCollection menuItems, IEnumerable<Command> commands = null)
 		{
 			Handler.CreateStandardMenu(menuItems, commands ?? GetSystemCommands());
